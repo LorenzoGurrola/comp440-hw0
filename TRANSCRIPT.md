@@ -8854,7 +8854,7 @@ Setup's done. Part 1 is current: open `human_part1.py` and work through it on yo
 <!-- transcript-session: 73a34ef1-84b3-438c-8024-b6010165cf89 | 2026-09-16T02:21:13.285Z -->
 ## Session `73a34ef1` — 2026-09-16 02:21:13
 
-*3 user turns. Tool outputs and reasoning omitted.*
+*4 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 hello
@@ -8883,5 +8883,14 @@ git, uv, and the `upstream` remote are already set up.
 - 🔧 `Bash` — Sync dependencies and run run_all.py
 That printed correctly. Now let me check `WRITEUP.md` for the Name/Date line.
 - 🔧 `Bash` — Show top of WRITEUP.md
+Already filled in and committed (`Name and date`, a3694e3). Setup is done.
+
+Part 1 is current: work in `human_part1.py` on your own — I'm here only for installing and debugging.
+
+**User:**
+uv run python human_part1.py
+
+**Claude:**
+- 🔧 `Bash` — Run human_part1.py
 
 <!-- end-session: 73a34ef1-84b3-438c-8024-b6010165cf89 -->
