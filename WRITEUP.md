@@ -11,23 +11,23 @@ Code: `human_part1.py`. One or two sentences per answer, with the numbers.
 
 **(a) How many ratings, users, and movies are there, and how are ratings distributed across 1–5 stars?**
 
-XXXX
+We can use a numpy array to hold the number of each amount of stars, where index = num_stars
 
 **(b) What is the median number of ratings per user, and how many users have 100 or more ratings?**
 
-XXXX
+We can use the same where count[user_id] is the number of ratings for that user. Then filter.
 
 **(c) Which 10 movies have the most ratings?**
 
-XXXX
+Now we change tactics, and work with the pandas library to do some data wrangling.
 
 **(d) Among movies with at least 20 ratings, which 10 have the highest mean rating?**
 
-XXXX
+Made some new columns to hold the data...totaled the number of stars then divided by num_ratings to reach average.
 
 **Anything you got stuck on (what you tried, where it broke), or "none":**
 
-XXXX
+Tried using the numpy indexing tactic for parts c and d, then had to learn some pandas from youtube and google.
 
 ## Part 2. The best movie
 
