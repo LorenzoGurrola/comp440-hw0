@@ -8854,7 +8854,7 @@ Setup's done. Part 1 is current: open `human_part1.py` and work through it on yo
 <!-- transcript-session: 73a34ef1-84b3-438c-8024-b6010165cf89 | 2026-09-16T02:21:13.285Z -->
 ## Session `73a34ef1` — 2026-09-16 02:21:13
 
-*1 user turns. Tool outputs and reasoning omitted.*
+*2 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 hello
@@ -8864,5 +8864,14 @@ hello
 Setup's done (`Name and date` commit exists), but there's no `Parts 1-3 finished` commit yet — so you're on Parts 1–3.
 
 Until that gate commit, I can only help with installation and debugging. What do you need — are you starting the code, or stuck on something?
+
+**User:**
+How do I start this hw0
+
+**Claude:**
+- 🔧 `Bash` — List repo files
+Start with README.md — it lays out what Parts 1–3 ask for. Then work in `human_part1.py`, `human_part2.py`, `human_part3.py`, filling in your answers in `WRITEUP.md` as you go. `load_data.py` gives you `load_all()` for the data.
+
+Want to open README.md now, or are you already past that and stuck on something specific?
 
 <!-- end-session: 73a34ef1-84b3-438c-8024-b6010165cf89 -->
