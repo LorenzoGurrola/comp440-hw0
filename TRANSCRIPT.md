@@ -8901,7 +8901,7 @@ Look for a stray `print(ratings)` or similar and remove or replace it with the s
 <!-- transcript-session: 265f703c-db65-43ba-afd0-6f812770e20f | 2026-09-17T01:03:28.902Z -->
 ## Session `265f703c` — 2026-09-17 01:03:28
 
-*8 user turns. Tool outputs and reasoning omitted.*
+*9 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 claude I finished my parts, but double check me
@@ -9100,5 +9100,19 @@ What it wrote about it, as a comment above that code:
 > A raw highest-mean ranking is dominated by movies with a handful of 5-star ratings (e.g. one rating of 5 gives a "perfect" 5.0 mean). To find a movie that's genuinely good, not just lucky, use a Bayesian-averaged score that pulls each movie's mean toward the overall mean, with strength proportional to how few ratings it has. This is the same shrinkage IMDb uses for its "Top 250" list.
 
 That's everything it wrote there — the Part 5 slot asking whether it admits the rule was a choice is yours to judge from this.
+
+**User:**
+Can you explain how it came up with that rule, why it is better than just looking at the average rating
+
+**Claude:**
+Where it came from: raw mean rating is unstable for movies with few ratings — one 5-star rating gives a perfect 5.0 mean, tying it with movies that have hundreds of consistently high ratings. The bayesian_mean formula blends each movie's own mean with the dataset's overall mean (3.53), weighted by `count` vs `min_ratings` (50):
+
+```
+bayesian_mean = (count * mean + 50 * overall_mean) / (count + 50)
+```
+
+A movie with `count` far above 50 gets pulled only slightly toward 3.53 — its own mean dominates. A movie with `count` far below 50 gets pulled hard toward 3.53 — its mean is treated as unreliable. This is the same idea as the shrunk mean in the assignment brief (`(n*mean + k*global_mean)/(n+k)`), just with k=50 instead of a value you'd pick yourself.
+
+Whether that tradeoff is the "right" one — versus a plain average, or your own rule — is the Part 5 judgment call, not something I'll settle for you.
 
 <!-- end-session: 265f703c-db65-43ba-afd0-6f812770e20f -->
