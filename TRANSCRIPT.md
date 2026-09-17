@@ -8901,7 +8901,7 @@ Look for a stray `print(ratings)` or similar and remove or replace it with the s
 <!-- transcript-session: 265f703c-db65-43ba-afd0-6f812770e20f | 2026-09-17T01:03:28.902Z -->
 ## Session `265f703c` — 2026-09-17 01:03:28
 
-*10 user turns. Tool outputs and reasoning omitted.*
+*11 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 claude I finished my parts, but double check me
@@ -9122,5 +9122,46 @@ Give me an example of how this bayseian_mean compares to the normal mean with a 
 - 🔧 `Bash` — Compare raw mean vs bayesian_mean for low-count and high-count movies
 The 1–2 rating rows got truncated by pandas. Let me rerun with full columns shown.
 - 🔧 `Bash` — Rerun comparison with full column width
+Two clear cases here:
+
+**"Police Story 4" — 1 rating, that rating was a 1.0.** Raw mean: 1.0 — dead last if you sorted by raw mean. Bayesian mean: 3.48 — barely below the overall average of 3.53. With `k=50` in the denominator against a `count` of 1, the formula is almost entirely `k * overall_mean`, so one data point barely moves it.
+
+**"Liar Liar" — 485 ratings, raw mean 3.157.** Bayesian mean: 3.192. With `count=485` against `k=50`, the movie's own mean carries about 90% of the weight (`485/(485+50)`), so the shrinkage barely nudges it.
+
+So the same formula treats a single rating as almost no evidence and treats hundreds of ratings as strong evidence, without you having to write different logic for each case.
+
+**User:**
+Can you summarize its results from part 3
+
+**Claude:**
+Claude's Part 3 output, as `claude_answers_1_2_3.py` printed it:
+
+```
+3. Which movie is the most confused?
+(highest standard deviation of ratings, among movies with >= 20 ratings)
+
+  std   mean   count  title
+ 1.51   2.12      26  Spice World (1997)
+ 1.50   2.50      20  Half Baked (1998)
+ 1.47   3.45      20  Ma vie en rose (My Life in Pink) (1997)
+ 1.46   2.56      34  Kull the Conqueror (1997)
+ 1.41   3.09      23  Live Nude Girls (1995)
+ 1.41   2.71      35  Kull the Conqueror (1997)
+ 1.40   2.44      27  Wishmaster (1997)
+ 1.39   2.52      33  That Darn Cat! (1997)
+ 1.39   2.87      23  Cemetery Man (Dellamorte Dellamore) (1994)
+ 1.38   3.69      26  Pillow Book, The (1995)
+
+Most confused movie: "Spice World (1997)" -- std dev 1.51, mean 2.12 over 26 ratings
+
+Rating breakdown for the most confused movie:
+  1 stars: 15
+  2 stars: 2
+  3 stars: 3
+  4 stars: 3
+  5 stars: 3
+```
+
+Its definition of "confused": highest standard deviation of star ratings, among movies with ≥20 ratings — winner is *Spice World (1997)*.
 
 <!-- end-session: 265f703c-db65-43ba-afd0-6f812770e20f -->
