@@ -33,25 +33,35 @@ Tried using the numpy indexing tactic for parts c and d, then had to learn some 
 
 Code: `human_part2.py`.
 
-**My rule:** XXXX
+**My rule:** (avg_rating/5) + total_ratings/max(total_ratings) + (2026-year)/400
 
-**One rule I considered and rejected, and why:** XXXX
+**One rule I considered and rejected, and why:** I was going to go with (avg_rating/5) + total_ratings/max(total_ratings), but I wanted to do some extra data wrangling to get year column, and a bit more complex equation.
 
 **Top 10 under my rule:**
 
-XXXX
+     movie_id                             title  num_ratings  avg_rating  my_score
+49         50                  Star Wars (1977)          583    4.358491  1.994198
+99        100                      Fargo (1996)          508    4.155512  1.736878
+180       181         Return of the Jedi (1983)          507    4.007890  1.708763
+126       127             Godfather, The (1972)          413    4.283293  1.687841
+173       174    Raiders of the Lost Ark (1981)          420    4.252381  1.665849
+97         98  Silence of the Lambs, The (1991)          390    4.289744  1.603851
+257       258                    Contact (1997)          509    3.803536  1.595112
+171       172   Empire Strikes Back, The (1980)          367    4.204360  1.563113
+0           1                  Toy Story (1995)          452    3.878319  1.543050
+482       483                 Casablanca (1942)          243    4.456790  1.527568
 
 **Why my rule, in at most 150 words. Name one thing it gains and one thing it loses:**
 
-XXXX
+I think ratings are the most important factor, so I wanted to heavily weight that. I also think that a movie that has been rated more proved that it deserves its rating more. I also included a small bias towards older movies, but that's my own personal bias.
 
 ## Part 3. The most ___ movie
 
 Code: `human_part3.py`.
 
-**My adjective:** XXXX
+**My adjective:** confused
 
-**My definition** (one sentence, precise enough that a classmate could code it)**:** XXXX
+**My definition** (one sentence, precise enough that a classmate could code it)**:** A movie that is in too many genres for its own good.
 
 **One definition I considered and rejected, and why:** XXXX
 
