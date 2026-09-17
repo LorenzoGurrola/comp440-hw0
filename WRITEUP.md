@@ -61,18 +61,23 @@ Code: `human_part3.py`.
 
 **My adjective:** confused
 
-**My definition** (one sentence, precise enough that a classmate could code it)**:** A movie that is in too many genres for its own good.
+**My definition** (one sentence, precise enough that a classmate could code it)**:** A movie that is in too many genres for its own good. (lots of genres + has low rating)
 
-**One definition I considered and rejected, and why:** XXXX
+**One definition I considered and rejected, and why:** I was thinking about doing something more sophisticated, but figured it would be nice to keep it simple for this one.
 
 **Top 5 under my definition:**
 
-XXXX
+                                     title  genres  avg_rating  my_score
+559   Kid in King Arthur's Court, A (1995)       6    2.727273  3.272727
+425    Transformers: The Movie, The (1986)       6    2.843750  3.156250
+1075                Pagemaster, The (1994)       5    2.250000  2.750000
+20           Muppet Treasure Island (1996)       5    2.761905  2.238095
+819                       Space Jam (1996)       5    2.774194  2.225806
 
 **What your definition captures, what it misses, and where "___-ness" lives in this data — the
 genre labels, what the crowd did, or the words in the titles. At most 150 words:**
 
-XXXX
+My definition does a good job of finding movies that are listed in lots of genres and have low rating. Whether this means the movie was rated low because it was "confused," or because of another reason, is something my definition doesn't capture.
 
 ## Part 4. Claude's answers
 
