@@ -86,60 +86,84 @@ or your answers.
 
 **Did its numbers for Part 1 match yours? If not, which, and what did you find?**
 
-XXXX
+Yes, they did!
 
 ## Part 5. Comparing the best movie
 
 **Claude's rule:**
 
-XXXX
+Bayesian-averaged score
 
 **Read what Claude wrote about its rule. Does it anywhere admit the rule was a choice, and that a different rule was possible? Or does it give its answer as simply the answer? Quote the sentence that decides it:**
 
-XXXX
+A raw highest-mean ranking is dominated by movies with a handful of 5-star ratings (e.g. one rating of 5 gives a "perfect" 5.0 mean). To find a movie that's genuinely good, not just lucky, use a Bayesian-averaged score that pulls each movie's mean toward the overall mean, with strength proportional to how few ratings it has. This is the same shrinkage IMDb uses for its "Top 250" list.
 
 **Your Part 2 top 10 and Claude's Part 2 top 10 — not the Part 1(d) lists. Where do they differ, and why?**
 
-XXXX
+== My rule ==
+     movie_id                             title  ...  avg_rating  my_score
+49         50                  Star Wars (1977)  ...    4.358491  1.994198
+99        100                      Fargo (1996)  ...    4.155512  1.736878
+180       181         Return of the Jedi (1983)  ...    4.007890  1.708763
+126       127             Godfather, The (1972)  ...    4.283293  1.687841
+173       174    Raiders of the Lost Ark (1981)  ...    4.252381  1.665849
+97         98  Silence of the Lambs, The (1991)  ...    4.289744  1.603851
+257       258                    Contact (1997)  ...    3.803536  1.595112
+171       172   Empire Strikes Back, The (1980)  ...    4.204360  1.563113
+0           1                  Toy Story (1995)  ...    3.878319  1.543050
+482       483                 Casablanca (1942)  ...    4.456790  1.527568
+
+Claude
+ score   mean   count  title
+  4.33   4.47     298  Schindler's List (1993)
+  4.31   4.45     283  Shawshank Redemption, The (1994)
+  4.30   4.46     243  Casablanca (1942)
+  4.29   4.36     583  Star Wars (1997)
+  4.25   4.39     267  Usual Suspects, The (1995)
+  4.22   4.39     209  Rear Window (1954)
+  4.20   4.29     390  Silence of the Lambs, The (1991)
+  4.20   4.28     413  Godfather, The (1972)
+  4.19   4.49     112  Close Shave, A (1995)
+  4.19   4.47     118  Wrong Trousers, The (1993)
 
 **Better for what purpose? Name a situation where your rule is the right one and a situation where Claude's is. At most 150 words. You may conclude yours, its, or neither:**
 
-XXXX
+Claude's rule is better for when the movie has very few ratings, as it tries to average it out around ~3.5. Our rules are roughly identical when the number of ratings grows and becomes more reliable. I guess mine is a bit better if the user is biased towards old movies.
 
 ## Part 6. Comparing the most ___ movie
 
 **Claude's definition:**
 
-XXXX
+The highest standard deviation of star ratings, among movies with ≥20 ratings
 
 **Is Claude's film in your top 5?**
 
-XXXX
+No
 
 **What Claude's definition sees that yours does not, and the reverse. At most 150 words:**
 
-XXXX
+Interesting. Claude's definition is based around viewer perception, while mine is around genre and intended meaning. Claude ranks a movie that has divisive ratings as confused, while I rank a movie in multiple categories and with low overall rating as confused.
 
 ## Working with Claude
 
 **What you asked Claude for during Parts 1–3** (debugging and installing only — say what you
 got stuck on)**:**
 
-XXXX
+Nothing. I had to switch from using numpy indexing to working with pandas, which I was unfamiliar with (I'm used to working with dataframes in R), but I did all of my research on Google.
 
 **Something Claude said that you could not verify, and why. Or "none," and how you checked:**
 
-XXXX
+I didn't look too closely at the equation for the bayesian mean, but I asked it how using that mean affects the score of a movie with few ratings vs. a movie with many.
 
 **What you would do differently next time, in 3–5 sentences:**
 
-XXXX
+Abandon the numpy indexing sooner when I started to struggle with it. Recognize it was kind've a niche solution and that there was likely a better way to work with the dataframes.
 
 **Where did this assignment slow you down for a reason that was its fault, not yours? Point at
 the step. Or "nowhere." One or two sentences:**
 
-XXXX
+I was a bit confused on where I was supposed to look for Claude's answers and logic for its parts. But I asked it to summarize what it (or I guess the other agent), did, and that worked well.
 
-**Hours spent:** XXXX
+**Hours spent:** 3.5
 
-**Anyone who helped you, or "no one":** XXXX
+**Anyone who helped you, or "no one":** No one
