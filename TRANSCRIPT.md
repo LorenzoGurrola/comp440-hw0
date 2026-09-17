@@ -8901,7 +8901,7 @@ Look for a stray `print(ratings)` or similar and remove or replace it with the s
 <!-- transcript-session: 265f703c-db65-43ba-afd0-6f812770e20f | 2026-09-17T01:03:28.902Z -->
 ## Session `265f703c` — 2026-09-17 01:03:28
 
-*9 user turns. Tool outputs and reasoning omitted.*
+*10 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 claude I finished my parts, but double check me
@@ -9114,5 +9114,13 @@ bayesian_mean = (count * mean + 50 * overall_mean) / (count + 50)
 A movie with `count` far above 50 gets pulled only slightly toward 3.53 — its own mean dominates. A movie with `count` far below 50 gets pulled hard toward 3.53 — its mean is treated as unreliable. This is the same idea as the shrunk mean in the assignment brief (`(n*mean + k*global_mean)/(n+k)`), just with k=50 instead of a value you'd pick yourself.
 
 Whether that tradeoff is the "right" one — versus a plain average, or your own rule — is the Part 5 judgment call, not something I'll settle for you.
+
+**User:**
+Give me an example of how this bayseian_mean compares to the normal mean with a movie that has only 1 or 2 ratings, vs a movie that has a reliable 400-500 ratings
+
+**Claude:**
+- 🔧 `Bash` — Compare raw mean vs bayesian_mean for low-count and high-count movies
+The 1–2 rating rows got truncated by pandas. Let me rerun with full columns shown.
+- 🔧 `Bash` — Rerun comparison with full column width
 
 <!-- end-session: 265f703c-db65-43ba-afd0-6f812770e20f -->
